@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+
+    let textArray = ['rock', 'paper', 'scissors'];
+
+    //Getting a random computer choice
+    function getComputerChoice(){
+      let randomNumber = Math.floor(Math.random()*textArray.length);
+      randomString = textArray[randomNumber];
+    }; getComputerChoice();
+
+    testInput = prompt("pick").toLowerCase();
+    console.log(testInput);
+    invalidChoice = true;
+
+    //When choice is invalid, pick again
+    while(invalidChoice){
+      if(textArray.includes(testInput)){
+        invalidChoice = false
+      }
+      else{
+        testInput = prompt("invalid. pick again")
+      };
+    };
+
+    function test(playerSelection,computerSelection){
+      
+      
+
+      
+      if(testInput === 'Rock'){
+        console.log('hakdog')
+      }
+    };test(testInput,randomString)
+
+    
+
+
+  </script>
+</body>
+</html>
