@@ -12,35 +12,55 @@
     //Getting a random computer choice
     function getComputerChoice(){
       let randomNumber = Math.floor(Math.random()*textArray.length);
-      randomString = textArray[randomNumber];
-    }; getComputerChoice();
+      let computerInput = textArray[randomNumber];
+      return computerInput
+    }; 
 
-    testInput = prompt("pick").toLowerCase();
-    console.log(testInput);
-    invalidChoice = true;
-
-    //When choice is invalid, pick again
-    while(invalidChoice){
-      if(textArray.includes(testInput)){
-        invalidChoice = false
-      }
-      else{
-        testInput = prompt("invalid. pick again")
+    //Player Input
+    function getPlayerChoice(){
+      let playerInput = prompt("pick");
+      let invalidChoice = true;
+      
+      //When choice is invalid, pick again
+      while(invalidChoice){
+        if(playerInput !== null){
+          if(textArray.includes(playerInput.toLowerCase())){
+            invalidChoice = false;
+            return playerInput.toLowerCase()
+          } else{ 
+            playerInput = prompt("invalid. pick again")
+          };
+        } else{
+          invalidChoice = false;
+          return playerInput = 'invalid'
+        };
       };
     };
 
-    function test(playerSelection,computerSelection){
-      
-      
-
-      
-      if(testInput === 'Rock'){
-        console.log('hakdog')
+    //WinLose Logic
+    function playRound(playerSelection,computerSelection){
+      if((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors')
+      || (playerSelection === 'scissors' && computerSelection === 'rock')){
+        return 'Lose'
+      } else if (playerSelection === computerSelection){
+        return 'Draw'
+      } else if (playerSelection === 'invalid') {
+        return 'Invalid Match'
+      } else {
+        return 'Win'
       }
-    };test(testInput,randomString)
+    };
 
-    
+    function game(){
+      for (let i = 0; i < 5; i++) {
+        playerInput = getPlayerChoice();
+        computerInput = getComputerChoice();
+        console.log(playerInput,computerInput);
+        console.log(playRound(playerInput,computerInput))
+      } 
+    };
 
+    game()
 
   </script>
 </body>
