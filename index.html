@@ -5,6 +5,9 @@
   <title>Page Title</title>
 </head>
 <body>
+  <button value="rock">"ROCK"</button>
+  <button value="paper">"PAPER"</button>
+  <button value="scissors">"SCISSORS"</button>
   <script>
 
     let textArray = ['rock', 'paper', 'scissors'];
@@ -15,27 +18,6 @@
       let computerInput = textArray[randomNumber];
       return computerInput
     }; 
-
-    //Player Input
-    function getPlayerChoice(){
-      let playerInput = prompt("pick");
-      let invalidChoice = true;
-      
-      //When choice is invalid, pick again
-      while(invalidChoice){
-        if(playerInput !== null){
-          if(textArray.includes(playerInput.toLowerCase())){
-            invalidChoice = false;
-            return playerInput.toLowerCase()
-          } else{ 
-            playerInput = prompt("invalid. pick again")
-          };
-        } else{
-          invalidChoice = false;
-          return playerInput = 'invalid'
-        };
-      };
-    };
 
     //WinLose Logic
     function playRound(playerSelection,computerSelection){
@@ -51,16 +33,16 @@
       }
     };
 
-    function game(){
-      for (let i = 0; i < 5; i++) {
-        playerInput = getPlayerChoice();
-        computerInput = getComputerChoice();
-        console.log(playerInput,computerInput);
-        console.log(playRound(playerInput,computerInput))
-      } 
-    };
-
-    game()
+    //OnClick play the round
+    let btns = document.querySelectorAll('button');
+    for(items of btns) {
+      items.addEventListener('click',function () {
+        let computerInput = getComputerChoice();
+        console.log(this.value,computerInput);
+        let result = playRound(this.value,computerInput);
+        alert(result);
+      })
+    }
 
   </script>
 </body>
