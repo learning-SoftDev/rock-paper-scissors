@@ -3,47 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Page Title</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <button value="rock">"ROCK"</button>
-  <button value="paper">"PAPER"</button>
-  <button value="scissors">"SCISSORS"</button>
-  <script>
+  <div class="wholeContainer">
+    <h1>ROCK PAPER SCISSORS</h1>
+    <h2 id="matchResult">Choose your weapon to start the game</h2>
+    <div class="containerPicked">
+      <div class="playerComputer">
+        <div id="playerScore">Player</div>
+        <div class="matchChoice" id="matchPlayerChoice">?</div>
+      </div>
+      <div class="playerComputer">
+        <div id="computerScore">Computer</div>
+        <div class="matchChoice" id="matchComputerChoice">?</div>
+      </div>
+    </div>
+    <div class="containerChoices">
+      <button class="choicesButton" value="rock"><div class="choices">✊</div></button>
+      <button class="choicesButton" value="paper"><div class="choices">✋ </div></button>
+      <button class="choicesButton" value="scissors"><div class="choices">✌</div></button>
+    </div>
+  </div>
 
-    let textArray = ['rock', 'paper', 'scissors'];
+  <div class="container-history-all">
+    <div class="container-current-history">
+      <h3>Match History</h3>
+      <div class="container-history-three">
+        <div class="container-history">
+          <h4 class="history-individual">Result</h4>
+          <h4 class="history-individual">Player</h4>
+          <h4 class="history-individual">Computer</h4>
+          <h4 class="history-individual">Running</h4>
+        </div>
+        <div class="container-history">
+          <div class="history-individual" id="match-history-result"></div>
+          <div class="history-individual" id="match-history-player"></div>
+          <div class="history-individual" id="match-history-computer"></div>
+          <div class="history-individual" id="match-history-running"></div>
+        </div>
+      </div>
+    </div>
+</div>
 
-    //Getting a random computer choice
-    function getComputerChoice(){
-      let randomNumber = Math.floor(Math.random()*textArray.length);
-      let computerInput = textArray[randomNumber];
-      return computerInput
-    }; 
 
-    //WinLose Logic
-    function playRound(playerSelection,computerSelection){
-      if((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors')
-      || (playerSelection === 'scissors' && computerSelection === 'rock')){
-        return 'Lose'
-      } else if (playerSelection === computerSelection){
-        return 'Draw'
-      } else if (playerSelection === 'invalid') {
-        return 'Invalid Match'
-      } else {
-        return 'Win'
-      }
-    };
 
-    //OnClick play the round
-    let btns = document.querySelectorAll('button');
-    for(items of btns) {
-      items.addEventListener('click',function () {
-        let computerInput = getComputerChoice();
-        console.log(this.value,computerInput);
-        let result = playRound(this.value,computerInput);
-        alert(result);
-      })
-    }
 
-  </script>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
