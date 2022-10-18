@@ -7,6 +7,13 @@
     cursor: pointer;
 }
 
+.choicesButton:hover, .play-again:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.1);
+    transition: all .3s;
+}
+
 .containerChoices, .containerPicked{
     display: flex;
     margin:10px;
