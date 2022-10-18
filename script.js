@@ -2,6 +2,7 @@
 const textArray = ['rock', 'paper', 'scissors'];
 const imageArray = ['✊', '✋', '✌'];
 
+document.getElementById('playAgain').style.visibility="hidden"
 
 //Getting a random computer choice
 function getComputerChoice(){
@@ -25,15 +26,6 @@ function playRound(playerSelection,computerSelection){
   }
 };
 
-function resetScore(){
-  computerScoreNum=0;
-  playerScoreNum=0;
-  matchHistoryResult = '';
-  matchHistoryPlayer = '';
-  matchHistoryComputer = '';
-  matchRunning = '';
-  //finalResult.textContent = '';
-}
 
 function playMatch() {
   finalResult.textContent = ''; 
@@ -93,12 +85,12 @@ function playMatch() {
     } else {
       finalResult.textContent = 'You Lose.'
     };
-    resetScore();
-    items.removeEventListener('click',playMatch);
+    for(i of btns){
+      i.removeEventListener('click',playMatch);
+    };
+    document.getElementById('playAgain').style.visibility="visible"
   } ;
 }
-
-
 
 //Setting up required variables
 const matchResult = document.getElementById('matchResult');
@@ -106,8 +98,9 @@ const matchPlayerChoice = document.getElementById('matchPlayerChoice');
 const matchComputerChoice = document.getElementById('matchComputerChoice');
 const playerScore = document.getElementById('playerScore');
 const computerScore = document.getElementById('computerScore');
+const playAgain = document.getElementById('playAgain');
 const finalResult = document.getElementById('finalResult')
-const btns = document.querySelectorAll('button');
+const btns = document.querySelectorAll('.choicesButton');
 const resultArray = ['You Win!', 'You Lose', 'Draw'];
 const mapArray = ['Win', 'Lose', 'Draw'];
 let matchHistoryResult = ''
@@ -121,7 +114,10 @@ let playerScoreNum = 0;
 let matchIndic = 0;
 
 //OnClick play the round
-//while(!endMatch){
 for(items of btns) {
   items.addEventListener('click',playMatch)
-}
+};
+
+playAgain.addEventListener('click',function(){
+  location.reload();
+});

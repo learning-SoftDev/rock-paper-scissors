@@ -2,7 +2,7 @@
     font-size: 80px;
 }
 
-.choicesButton{
+.choicesButton, .play-again{
     width: 100px;
     cursor: pointer;
 }
@@ -86,7 +86,7 @@
 .container-main-content{
     display:flex;
     justify-content: center;
-    padding:20px;
+    padding:30px;
 }
 
 .footer {
@@ -102,4 +102,10 @@
   .final-result{
     text-align: center;
 
+  }
+
+  .container-final-result{
+    display: flex;
+    justify-content: center;
+    gap:20px
   }
