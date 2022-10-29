@@ -11,7 +11,4 @@ I understood the logic behind the syntax
 -DOM selectors getElementByID and querySelectorAll
 -The most important thing I learned here is the event listeners and how they work, the requirements, etc.
 
-Credits to michalosman (which is also taking the TOP), his/her work has been the inspiration of this project https://michalosman.github.io/rock-paper-scissors/.
-Do note that the code was not copied from michalosman's project, just the UI.
-
 Live: https://learning-softdev.github.io/rock-paper-scissors/
