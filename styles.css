@@ -1,3 +1,7 @@
+:root {
+    --boxShadow: 4px 5px 5px 0px rgb(0 0 0 / 50%);
+}
+
 .choices{
     font-size: 80px;
 }
@@ -5,6 +9,7 @@
 .choicesButton, .play-again{
     width: 100px;
     cursor: pointer;
+    box-shadow: var(--boxShadow)
 }
 
 .choicesButton:hover, .play-again:hover {
@@ -18,7 +23,6 @@
     display: flex;
     margin:10px;
     gap:40px;
-
 }
 
 .container-history{
@@ -54,6 +58,7 @@
     padding-bottom: 30px;
     margin:20px;
     border:3px solid black;
+    box-shadow: var(--boxShadow);
 }
 
 .playerComputer{
@@ -62,6 +67,7 @@
     height:150px;
     margin:10px;
     padding-top: 20px;
+    box-shadow: var(--boxShadow)
 }
 
 .matchChoice{
@@ -73,7 +79,8 @@
     background-color:rgb(51, 51, 51);
     color: white;
     text-align: center;
-    padding:5px
+    padding:5px;
+    font-size: 23px;
 }
 
 body{
@@ -85,6 +92,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: white;
+    margin-top: 10px;
 }
 
 .container-main-content{
@@ -107,6 +115,9 @@ body{
 
 .match-result{
     text-align: center;
+    height: 55px;
+    width: 520px;
+
 }
 
 footer {
