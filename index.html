@@ -15,19 +15,19 @@
         <div class="wholeContainer">
           <h2 class="match-result" id="matchResult">First to reach five (5) points win. <br> Choose your weapon to start the game</h2>
           <div class="containerPicked">
-            <div class="playerComputer">
+            <div class="playerComputer" id="playerID">
               <div id="playerScore">Player</div>
               <div class="matchChoice" id="matchPlayerChoice">?</div>
             </div>
-            <div class="playerComputer">
+            <div class="playerComputer" id="computerID">
               <div id="computerScore">Computer</div>
               <div class="matchChoice" id="matchComputerChoice">?</div>
             </div>
           </div>
           <div class="containerChoices">
-            <button class="choicesButton" value="rock"><div class="choices">✊</div></button>
-            <button class="choicesButton" value="paper"><div class="choices">✋ </div></button>
-            <button class="choicesButton" value="scissors"><div class="choices">✌</div></button>
+            <button class="choicesButton" value="rock"><img src="images/rock.png" alt="missing" class="imgChoice"></button>
+            <button class="choicesButton" value="paper"><img src="images/paper.png" alt="missing" class="imgChoice"></button>
+            <button class="choicesButton" value="scissors"><img src="images/scissors.png" alt="missing" class="imgChoice"></button>
           </div>
         </div>
         <div class="container-current-history">
@@ -59,7 +59,7 @@
       </footer>   
       <div class="container-final-result">
         <h1 class="final-result" id="finalResult"></h1>
-        <button class="play-again" id="playAgain">Play Again</button>
+        <button class="play-again" id="playAgain"><img src="images/PlayAgainButton.png" alt="missing" id="imgPlayAgain"></button>
       </div>
   </div>
   <script src="script.js"></script>

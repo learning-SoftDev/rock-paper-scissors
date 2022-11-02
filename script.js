@@ -1,6 +1,6 @@
 //For indexing
 const textArray = ['rock', 'paper', 'scissors'];
-const imageArray = ['✊', '✋', '✌'];
+//const imageArray = ['✊', '✋', '✌'];
 
 document.getElementById('playAgain').style.visibility="hidden"
 
@@ -27,7 +27,8 @@ function playRound(playerSelection,computerSelection){
 };
 
 
-function playMatch() {
+function playMatch(e) {
+
   finalResult.textContent = ''; 
   const computerInput = getComputerChoice();
   const indexPlayer = textArray.findIndex(object => {
@@ -38,9 +39,32 @@ function playMatch() {
   });
 
   //Play the round after click
-  matchComputerChoice.textContent = imageArray[indexComputer];
-  matchPlayerChoice.textContent = imageArray[indexPlayer];
+  matchComputerChoice.innerHTML = ''; //imageArray[indexComputer];
+  matchPlayerChoice.innerHTML =   ''; //imageArray[indexPlayer];
+
+  //Changing emojis to images
+  //Player
+  let src = document.getElementById("matchPlayerChoice");
+  let img = document.createElement("img"); 
+ 
+  img.src = "images/" + this.value + ".png"; 
+  img.classList.add('imgResult')
+  
+  src.appendChild(img)
+
+  //Computer
+  src = document.getElementById("matchComputerChoice");
+  img = document.createElement("img"); 
+
+  img.src = "images/" + computerInput + ".png"; 
+  img.classList.add('imgResult')
+  
+  src.appendChild(img)
+
+
+
   const result = playRound(this.value,computerInput);
+  matchResult.classList.add('bigger')
   matchResult.textContent = result;
   playerScore.textContent = 'Player: ' + playerScoreNum;
   computerScore.textContent = 'Computer: ' + computerScoreNum;
@@ -88,7 +112,9 @@ function playMatch() {
     for(i of btns){
       i.removeEventListener('click',playMatch);
     };
+    document.querySelector('.container-final-result').classList.add('imgResultPlayAgain')
     document.getElementById('playAgain').style.visibility="visible"
+
   } ;
 }
 
